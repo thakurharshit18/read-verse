@@ -3,6 +3,8 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { PixelImage } from "../components/magicui/pixel-image";
+ 
 
 const BookDetails = () => {
   const [Book,SetBooks]=useState(null);
@@ -13,9 +15,8 @@ const fetchBook = async()=>{
     try {
         setLoading(true);
         const res = await axios.get(`http://localhost:5000/api/products/${id}`);
-        SetBooks(res.data.productDescription
-            
-        );
+        SetBooks(res.data.product);
+        setLoading(false);
     } catch (error) {
         console.error("there was a error in finding the books");
     }
@@ -30,6 +31,9 @@ if(!Book)return<div>No Books Found</div>;
   
     return (
     <div>
+     <PixelImage  src={Book.productImage}
+      customGrid={{ rows: 4, cols: 6 }}
+      grayscaleAnimation/>
         <h1>{Book.productDescription}</h1>
     </div>
 
