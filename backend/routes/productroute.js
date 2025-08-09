@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { createproduct, deleteproduct, getallProducts, productId, updateproduct } from "../controllers/productcontroller.js";
+import { protectRoute } from "../middlewares/authMiddleware.js";
+const router = Router();
+router.get('/',getallProducts);
+router.post('/',createproduct);
+router.delete('/',deleteproduct);
+router.patch('/',updateproduct);
+router.get('/:id',productId);
+export default router;
