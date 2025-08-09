@@ -30,7 +30,7 @@ if(!Book)return<div>No Books Found</div>;
 
   
     return (
-    <div>
+    <div className='bg-black'>
      <PixelImage  src={Book.productImage}
       customGrid={{ rows: 4, cols: 6 }}
       grayscaleAnimation/>

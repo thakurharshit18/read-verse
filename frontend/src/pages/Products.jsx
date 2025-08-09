@@ -42,7 +42,7 @@ const handleBooks = async()=>{
 
   return (
   <>
-  <h1 className="text-center text-6xl">Books </h1>
+  <h1 className="text-center text-6xl text-white">Books </h1>
   <div>
     <button onClick={handleBooks}>Add Books</button>
   </div>
