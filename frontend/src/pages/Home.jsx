@@ -23,7 +23,7 @@ const Home = () => {
       title: "Deep Work",
       author: "Cal Newport",
       description: "Rules for focused success in a distracted world.",
-      image: "https://images-na.ssl-images-amazon.com/images/I/81j7mG5Xk-L.jpg"
+      image: "https://m.media-amazon.com/images/I/81JJ7fyyKyS._SL1500_.jpg"
     },
     {
       id: 4,
@@ -56,7 +56,7 @@ const Home = () => {
               <img
                 src={book.image}
                 alt={book.title}
-                className="w-full h-70 object-cover rounded"
+                className="w-full h-70 object-cover rounded p-4"
               />
               <h3 className="text-xl font-semibold mt-4">{book.title}</h3>
               <p className="text-gray-600 italic">by {book.author}</p>

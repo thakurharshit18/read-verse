@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { RainbowButton } from "../components/magicui/rainbow-button";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,10 +43,10 @@ const handleBooks = async()=>{
   return (
   <>
   <h1 className="text-center text-6xl text-white">Books </h1>
-  <div className="flex justify-end text-white p-4 font-semibold">
-    <button onClick={handleBooks}>Add Books</button>
+  <div className="flex justify-end  font-semibold">
+    <RainbowButton onClick={handleBooks}>Add Books</RainbowButton>
   </div>
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-6">
     
   {products.map((product) => (
     <div
