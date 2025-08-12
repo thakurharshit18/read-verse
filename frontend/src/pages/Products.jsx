@@ -42,8 +42,9 @@ const handleBooks = async()=>{
 
   return (
   <>
-  <h1 className="text-center text-6xl text-white">Books </h1>
-  <div className="flex justify-end  font-semibold">
+  <h1 className="text-center text-6xl text-black font-light pt-5">Books </h1>
+  <div className="flex justify-end  p-10 font-semibold">
+
     <RainbowButton onClick={handleBooks}>Add Books</RainbowButton>
   </div>
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-6">

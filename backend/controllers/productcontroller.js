@@ -12,6 +12,9 @@ export const getallProducts = async (req, res) => {
 
 export const createproduct = async (req, res) => {
   try {
+    // if(!productName||!productDescription,!productName,!productImage){
+    //   return res.status(400).json({ msg: "Please fill in all fields" });
+    // }
     const { productId, productName, productDescription, productImage } = req.body;
     const newProduct = new Product({ productId, productName, productDescription, productImage });
     await newProduct.save();
