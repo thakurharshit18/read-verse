@@ -11,7 +11,7 @@ export  default function SignupFormDemo() {
     e.preventDefault();
     try {
 
-      const res = axios.post("http://localhost:5000/api/products",{
+      const res = axios.post("https://read-verse.onrender.com/api/products",{
         productName,
         productImage,
         productDescription

@@ -11,7 +11,7 @@ const Login = () => {
   const handleregister = async (e) => {
     e.preventDefault(); // prevent page reload
     try {
-     const res =  await axios.post("http://localhost:5000/api/users/login", {
+     const res =  await axios.post("https://read-verse.onrender.com/api/users/login", {
         Name: name,
         Email: email
       });

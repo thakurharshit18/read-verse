@@ -12,7 +12,7 @@ const BookDetails = () => {
     const fetchBook = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const res = await axios.get(`https://read-verse.onrender.com/api/products/${id}`);
         setBook(res.data.product);
       } catch (error) {
         console.error("There was an error in finding the book", error);

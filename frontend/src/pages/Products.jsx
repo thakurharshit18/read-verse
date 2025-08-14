@@ -17,7 +17,7 @@ const Products = () => {
         const token = localStorage.getItem("token");
         setLoading(true);
 
-        const res = await axios.get("http://localhost:5000/api/products", {
+        const res = await axios.get("https://read-verse.onrender.com/api/products", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
