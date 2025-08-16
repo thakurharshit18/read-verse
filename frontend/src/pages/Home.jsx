@@ -38,13 +38,13 @@ const Home = () => {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      <div className="text-center m-60 py-20 px-4 md:px-20">
+      <div className="text-center m-60  px-4 md:px-20">
         <h1 className=" text-9xl md:text-8xl font-extrabold mb-6 text-gray-800">
           Connect, Share, and Trade Your Favourite Reads!
         </h1>
       </div>
 
-      <section className="py-12 mt-55 px-4 md:px-20">
+      <section className=" px-4 md:px-20">
         <h2 className="text-7xl font-bold text-center  mb-10">Featured Books</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
