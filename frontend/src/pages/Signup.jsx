@@ -41,9 +41,11 @@ const Signup = () => {
 
     setLoading(true)
     try {
-      const res = await axios.post("https://read-verse.onrender.com/api/products/api/users", {
+      const res = await axios.post("https://read-verse.onrender.com/api/users", {
         Name: formData.name,
         Email: formData.email,
+        Password:formData.password
+
       })
       localStorage.setItem("token", res.data.token)
       navigate("/products")

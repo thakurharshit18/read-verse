@@ -1,5 +1,6 @@
 import User from '../models/user.js';
 import jwt from 'jsonwebtoken';
+import bcrypt from "bcrypt";
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -12,9 +13,9 @@ export const getAllUsers = async (req, res) => {
 
 export const registerUser = async (req, res) => {
   try {
-    const { Name, Email } = req.body;
+    const { Name, Email,Password } = req.body;
     //check if all the fields are completed
-    if(!Name||!Email){
+    if(!Name||!Email || !Password){
       return res.status(401).json({msg:"please send all the fields"})
     }
     //check if user exists
@@ -23,9 +24,9 @@ export const registerUser = async (req, res) => {
     if(userExists){
       return res.status(400).json({msg:"user already exists"})
     }
+    const hashedPassword =  await bcrypt.hash(Password,10);
 
-
-    const newUser = await  User.create({ Name, Email });
+    const newUser = await  User.create({ Name, Email,Password:hashedPassword });
    if(newUser){
     res.status(201).json({
       _id:newUser.id,
@@ -44,17 +45,16 @@ export const registerUser = async (req, res) => {
 
 export const loginuser = async(req,res)=>{
   try {
-    const {Email }= req.body;
-const user = User.findOne({Email});
+    const {Email,Password }= req.body;
+const user =await  User.findOne({Email});
 if(!user){
   return res.status(400).json({msg:"no user registered using this Email-Id"});
 }
-else{
+const isMatch = await bcrypt.compare(Password,user.Password);
+
   const token = Generatetoken(user.id);
-res.status(200).json(
- { msg:"user logged in successfully"},
-  {token})
-}
+ return res.status(200).json({ msg:"user logged in successfully"},{token});
+
 
 
 

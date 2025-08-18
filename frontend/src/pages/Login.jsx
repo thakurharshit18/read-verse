@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
@@ -12,8 +12,9 @@ const Login = () => {
     e.preventDefault(); // prevent page reload
     try {
      const res =  await axios.post("https://read-verse.onrender.com/api/users/login", {
-        Name: name,
-        Email: email
+        
+        Email: email,
+        Password:password
       });
       console.log("User registered successfully");
       localStorage.setItem("token",res.data.token);
@@ -29,19 +30,20 @@ const Login = () => {
 
       <form onSubmit={handleregister} className="flex flex-col gap-4 border p-6 w-80 shadow-lg">
         <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="p-2 border rounded"
-        />
-        <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="p-2 border rounded"
         />
+        <input
+          type="Password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="p-2 border rounded"
+        />
+       
         <button
           type="submit"
           className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
